@@ -9,7 +9,7 @@ import styles from './StartingPage.style';
 const StartingPage = ({ classes, text, testAction }) => (
   <div className={classes.wrapper}>
     {text}
-    <button onClick={testAction}>click me</button>
+    <button onClick={testAction}>click me!</button>
   </div>
 );
 
