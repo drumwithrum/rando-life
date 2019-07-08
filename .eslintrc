@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    },
+    "import/extensions": [
+      ".js",
+      ".jsx"
+    ]
+  },
+  "extends": "airbnb",
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "react/forbid-prop-types":"off",
+    "react/jsx-one-expression-per-line":"off",
+    "no-underscore-dangle":"off",
+    "no-shadow":"off",
+    "react/button-has-type":"off",
+    "import/prefer-default-export":"off"
+  },
+  "plugins": [
+    "jsx-a11y"
+  ]
+}
