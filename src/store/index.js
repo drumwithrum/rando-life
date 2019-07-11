@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import startingPage from '../Views/StartingPage/store/reducer';
+import mainPage from '../Views/MainPage/store/reducer';
 
-const reducers = (history) => combineReducers({
-  startingPage,
+const reducers = history => combineReducers({
+  mainPage,
   router: connectRouter(history),
 });
 
