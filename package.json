@@ -29,7 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "component": "hygen component new --name"
+
   },
   "eslintConfig": {
     "extends": "react-app"
