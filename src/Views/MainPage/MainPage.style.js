@@ -7,10 +7,13 @@ export default theme => createStyles({
     height: '100%',
     backgroundImage: `linear-gradient(to bottom, rgba(232, 203, 192, 0.5), rgba(99, 112, 164, 0.8)), url('${background}')`,
     backgroundSize: 'cover',
+    display: 'flex',
+    justifyContent: 'center',
   },
   header: {
     textAlign: 'center',
-    marginTop: '50px',
+    marginTop: '40px',
+    marginBottom: '20px',
   },
   title: {
     fontSize: '50px',
@@ -21,7 +24,19 @@ export default theme => createStyles({
     // backgroundColor: 'black',
     display: 'block',
     width: '100%',
-    height: '20%',
     color: 'white',
-  }
+  },
+  mainContainer: {
+    boxSizing: 'border-box',
+    backgroundColor: 'rgba(250, 250, 250, 0.5)',
+    width: '70%',
+    margin: 'auto',
+    height: '65%',
+    padding: '40px',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'start',
+    borderRadius: '5px',
+  },
 });

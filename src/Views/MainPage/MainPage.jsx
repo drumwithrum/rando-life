@@ -12,19 +12,25 @@ import styles from './MainPage.style';
 
 const MainPage = ({ classes, text, testAction }) => (
   <Grid container className={classes.wrapper}>
-    <Grid className={classes.header} xs={12}>
+    <Grid className={classes.header} xs={10}>
       <Typography className={classes.title}>Rando-life</Typography>
     </Grid>
-    <Grid className={classes.buttonsContainer}>
+    <Grid className={classes.buttonsContainer} xs={12}>
       <ButtonsContainer />
     </Grid>
-    <Input type="text" placeholder="podaj datę" />
-    <Grid>
-      <Typography>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nobis ullam impedit, vel debitis obcaecati corporis sapiente. Quidem enim quod esse, a, eveniet libero incidunt laboriosam praesentium sapiente quasi animi.
-      </Typography>
+    <Grid className={classes.mainContainer} xs={9}>
+      <Input type="text" placeholder="podaj datę" />
+      <Grid style={{ marginTop: '50px' }}>
+        <Typography>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nobis ullam impedit, vel debitis obcaecati corporis sapiente. Quidem enim quod esse, a, eveniet libero incidunt laboriosam praesentium sapiente quasi animi.
+        </Typography>
+      </Grid>
+    </Grid>
+    <Grid xs={10}>
+    Grid
     </Grid>
   </Grid>
+
 );
 
 MainPage.propTypes = {

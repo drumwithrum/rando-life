@@ -4,8 +4,8 @@ export default () => createStyles({
   button: {
     backgroundColor: 'white',
     color: '#6370A4',
-    width: '15%',
-    margin: '10px 20px',
+    width: '16%',
+    margin: '0 27px 0 27px',
     display: 'flex',
     justifyContent: 'space-around',
     boxSizing: 'border-box',
