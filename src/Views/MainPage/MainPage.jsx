@@ -1,11 +1,11 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core';
+import { withStyles, Input } from '@material-ui/core';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import ButtonsContainer from './components/ButtonsContainer.jsx';
+import { ButtonsContainer } from './components/index';
 import { testAction } from './store/actions';
 import styles from './MainPage.style';
 
@@ -17,6 +17,12 @@ const MainPage = ({ classes, text, testAction }) => (
     </Grid>
     <Grid className={classes.buttonsContainer}>
       <ButtonsContainer />
+    </Grid>
+    <Input type="text" placeholder="podaj datę" />
+    <Grid>
+      <Typography>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nobis ullam impedit, vel debitis obcaecati corporis sapiente. Quidem enim quod esse, a, eveniet libero incidunt laboriosam praesentium sapiente quasi animi.
+      </Typography>
     </Grid>
   </Grid>
 );
