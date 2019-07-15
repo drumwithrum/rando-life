@@ -15,7 +15,7 @@ const MainPage = ({ classes, text, testAction }) => (
     <Grid className={classes.header} xs={10}>
       <Typography className={classes.title}>Rando-life</Typography>
     </Grid>
-    <Grid className={classes.buttonsContainer} xs={12}>
+    <Grid className={classes.buttonsContainer} xs={9}>
       <ButtonsContainer />
     </Grid>
     <Grid className={classes.mainContainer} xs={9}>
@@ -26,8 +26,8 @@ const MainPage = ({ classes, text, testAction }) => (
         </Typography>
       </Grid>
     </Grid>
-    <Grid xs={10}>
-    Grid
+    <Grid className={classes.footer} xs={9}>
+      <Typography>Footer</Typography>
     </Grid>
   </Grid>
 
@@ -44,6 +44,7 @@ MainPage.defaultProps = {
 };
 
 const mapStateToProps = state => ({
+
 });
 
 const mapDispatchToProps = {

@@ -29,7 +29,6 @@ export default theme => createStyles({
   mainContainer: {
     boxSizing: 'border-box',
     backgroundColor: 'rgba(250, 250, 250, 0.5)',
-    width: '70%',
     margin: 'auto',
     height: '65%',
     padding: '40px',
@@ -37,6 +36,12 @@ export default theme => createStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'start',
+    borderRadius: '5px',
+  },
+  footer: {
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     borderRadius: '5px',
   },
 });

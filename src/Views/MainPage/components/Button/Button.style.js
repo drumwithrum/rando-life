@@ -2,14 +2,18 @@ import { createStyles } from '@material-ui/core';
 
 export default () => createStyles({
   button: {
-    backgroundColor: 'white',
-    color: '#6370A4',
-    width: '16%',
-    margin: '0 27px 0 27px',
+    width: '22%',
+    color: 'white',
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     boxSizing: 'border-box',
-    paddingLeft: '35px',
-    paddingRight: '35px',
+    borderRadius: '10px',
+  },
+  iconContainer: {
+    backgroundColor: 'white',
+    borderRadius: '10px',
+    boxSizing: 'border-box',
+    textAlign: 'center',
+    paddingTop: '5px',
   },
 });
