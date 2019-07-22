@@ -1,19 +1,25 @@
 import { createStyles } from '@material-ui/core';
 import background from 'images/background4.jpg';
 
+
+export const gradient = (color) => {
+  console.log(color);
+  return {
+    backgroundSize: 'cover',
+    backgroundImage: `linear-gradient(to bottom, ${color}, rgba(236, 130, 168, 0.2)), url('${background}') `,
+  };
+};
+
 export default theme => createStyles({
   wrapper: {
     width: '100%',
     height: '100%',
-    backgroundImage: `linear-gradient(to bottom, rgba(232, 203, 192, 0.5), rgba(99, 112, 164, 0.8)), url('${background}')`,
-    backgroundSize: 'cover',
     display: 'flex',
     justifyContent: 'center',
   },
   header: {
     textAlign: 'center',
-    marginTop: '40px',
-    marginBottom: '20px',
+    margin: '2%',
   },
   title: {
     fontSize: '50px',
@@ -21,7 +27,6 @@ export default theme => createStyles({
   },
   buttonsContainer: {
     textAlign: 'center',
-    // backgroundColor: 'black',
     display: 'block',
     width: '100%',
     color: 'white',
@@ -37,11 +42,14 @@ export default theme => createStyles({
     flexDirection: 'column',
     justifyContent: 'start',
     borderRadius: '5px',
+    alignItems: 'center',
   },
   footer: {
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    alignItems: 'center',
+    backgroundColor: 'rgba(250, 250, 250, 0.2)',
+    color: 'white',
     borderRadius: '5px',
   },
 });

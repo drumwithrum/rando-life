@@ -1,6 +1,6 @@
 export default {
-  blue: '#6370A4',
-  pink: '#EC82A8',
-  orange: '#FFC66E',
-  yellow: '#F9F871',
+  blue: 'rgba(99, 112, 164, 0.9)',
+  pink: 'rgba(236, 130, 168, 0.9)',
+  orange: 'rgba(255, 198, 110, 0.9)',
+  green: 'rgba(100, 180, 80, 0.9)',
 };
