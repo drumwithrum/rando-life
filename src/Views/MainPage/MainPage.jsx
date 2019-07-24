@@ -1,52 +1,24 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import colors from 'config/colors';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import { ButtonsContainer } from './components/index';
+import { ButtonsContainer, Content } from './components/index';
 import styles, { gradient } from './MainPage.style';
 import {
-  testAction,
   addSuccess,
   addStarted,
   addFailure,
 } from './store/actions';
 
-class MainPage extends Component {
-  async componentDidMount() {
-    // axios.get('https://jsonplaceholder.typicode.com/users')
-    //   .then((res) => {
-    //     console.log(res);
-    //   });
-    const apiTest = axios.create({
-      method: 'GET',
-      baseURL: 'https://numbersapi.p.rapidapi.com/random/trivia',
-      headers: {
-        'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com',
-        'X-RapidAPI-Key': 'a0e5fcc8d4msh1ec1af95e384ca6p1a79aajsnc6d3c773f4c0',
-      },
-      params: {
-        json: true,
-      },
-    });
-    try {
-      const response = await apiTest();
-      console.log(response.data);
-      const { addSuccess } = this.props;
-      addSuccess(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
+class MainPage extends PureComponent {
   render() {
-    const { classes, text, color, data } = this.props;
+    const { classes, page } = this.props;
     return (
-      <Grid container className={classes.wrapper} style={gradient(color)}>
+      <Grid container className={classes.wrapper} style={gradient(colors[page].color)}>
         <Grid className={classes.header} xs={10}>
           <Typography className={classes.title}>Rando-life</Typography>
         </Grid>
@@ -54,24 +26,9 @@ class MainPage extends Component {
           <ButtonsContainer />
         </Grid>
         <Grid className={classes.mainContainer} xs={9}>
-          <TextField
-            id="date"
-            label="Date"
-            type="date"
-            defaultValue="2017-05-24"
-            className={classes.textField}
-            style={{ backgroundColor: 'white', width: '40%', margin: '30px' }}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <Grid style={{ marginTop: '50px' }}>
-            <Typography>
-              {data}
-            </Typography>
-          </Grid>
+          <Content />
         </Grid>
-        <Grid className={classes.footer} style={{ backgroundColor: `${color}`, opacity: '0.8' }} xs={9}>
+        <Grid className={classes.footer} style={{ backgroundColor: `${colors[page].color}`, opacity: '0.8' }} xs={9}>
           <Typography>Footer</Typography>
         </Grid>
       </Grid>
@@ -83,11 +40,9 @@ MainPage.propTypes = {
   classes: PropTypes.object.isRequired,
   text: PropTypes.string,
   testAction: PropTypes.func.isRequired,
-  color: PropTypes.string.isRequired,
-  addSuccess: PropTypes.string.isRequired,
+  addSuccess: PropTypes.func.isRequired,
   data: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.string,
+  page: PropTypes.string.isRequired,
 };
 
 MainPage.defaultProps = {
@@ -99,10 +54,10 @@ const mapStateToProps = state => ({
   data: state.mainPage.data,
   loading: state.mainPage.loading,
   error: state.mainPage.error,
+  page: state.mainPage.page,
 });
 
 const mapDispatchToProps = {
-  testAction,
   addSuccess,
   addStarted,
   addFailure,

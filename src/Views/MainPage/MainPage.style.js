@@ -3,7 +3,6 @@ import background from 'images/background4.jpg';
 
 
 export const gradient = (color) => {
-  console.log(color);
   return {
     backgroundSize: 'cover',
     backgroundImage: `linear-gradient(to bottom, ${color}, rgba(236, 130, 168, 0.2)), url('${background}') `,
