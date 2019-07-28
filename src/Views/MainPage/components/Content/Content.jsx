@@ -42,14 +42,6 @@ class Content extends React.PureComponent {
     return (
       <Grid className={classes.wrapper}>
         {this.renderContent()}
-        {/* <Grid className={classes.input}>
-          <Typography>Tu bedzie się wybierało cyfry czy coś</Typography>
-        </Grid>
-        <Grid className={classes.text}>
-          <Typography>
-            {data}
-          </Typography>
-        </Grid> */}
       </Grid>
     );
   }

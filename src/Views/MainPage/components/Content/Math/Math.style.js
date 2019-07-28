@@ -11,4 +11,8 @@ export default () => createStyles({
   text: {
     fontSize: '24px',
   },
+  textField: {
+    width: '25%',
+    borderRadius: '5px',
+  },
 });

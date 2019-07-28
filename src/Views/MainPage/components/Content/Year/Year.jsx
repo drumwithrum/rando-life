@@ -14,12 +14,7 @@ class Year extends Component {
     year: '',
   }
 
-  // async componentDidMount() {
-  //   const { getYearFact } = this.props;
-  //   getYearFact(1273);
-  // }
-
-  handleYear = (e) => {
+  handleChangeYear = (e) => {
     this.setState({
       year: e.target.value,
     });
@@ -35,7 +30,7 @@ class Year extends Component {
           label="Year"
           type="number"
           value={year}
-          onChange={this.handleYear}
+          onChange={this.handleChangeYear}
           className={classes.textField}
           style={{ backgroundColor: 'white' }}
           InputLabelProps={{
@@ -76,4 +71,3 @@ const composedYear = compose(
 )(Year);
 
 export default composedYear;
-

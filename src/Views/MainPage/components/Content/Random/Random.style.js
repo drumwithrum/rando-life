@@ -7,6 +7,7 @@ export default () => createStyles({
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
+    paddingTop: '12%',
   },
   text: {
     fontSize: '24px',

@@ -12,6 +12,12 @@ export default () => createStyles({
     fontSize: '24px',
   },
   textField: {
-    backgroundColor: 'white',
+    width: '25%',
+    borderRadius: '5px',
+  },
+  button: {
+    width: '25%',
+    marginBottom: '40px',
+    padding: '1.87%',
   },
 });

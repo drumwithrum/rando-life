@@ -8,7 +8,7 @@ export default {
     id: 'year',
   },
   math: {
-    color: 'rgba(255, 198, 110, 0.9)',
+    color: 'rgba(255, 180, 60, 0.9)',
     id: 'math',
   },
   random: {

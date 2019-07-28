@@ -1,26 +1,30 @@
 import {
   TEST,
-  CHANGE_COLOR,
   CHANGE_PAGE,
-  ADD_STARTED,
-  ADD_SUCCESS,
-  ADD_FAILURE,
   GET_RANDOM_FACT_REQUEST,
   GET_RANDOM_FACT_SUCCESS,
   GET_RANDOM_FACT_FAILURE,
+  GET_DATE_FACT_REQUEST,
+  GET_DATE_FACT_SUCCESS,
+  GET_DATE_FACT_FAILURE,
   GET_YEAR_FACT_REQUEST,
   GET_YEAR_FACT_SUCCESS,
   GET_YEAR_FACT_FAILURE,
+  GET_MATH_FACT_REQUEST,
+  GET_MATH_FACT_SUCCESS,
+  GET_MATH_FACT_FAILURE,
 } from './types';
 
 const initialState = {
   testowo: ':)',
   color: 'rgba(225, 205, 225, 0.9)',
   randomFact: '',
+  dateFact: '',
   yearFact: '',
+  mathFact: '',
   loading: false,
   error: null,
-  page: 'start',
+  page: 'date',
 };
 
 export default (state = initialState, action) => {
@@ -53,6 +57,29 @@ export default (state = initialState, action) => {
         error: payload,
       };
     }
+    case GET_DATE_FACT_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case GET_DATE_FACT_SUCCESS: {
+      const { payload: { data } } = action;
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        dateFact: data,
+      };
+    }
+    case GET_DATE_FACT_FAILURE: {
+      const { payload } = action;
+      return {
+        ...state,
+        loading: false,
+        error: payload,
+      };
+    }
     case GET_YEAR_FACT_REQUEST: {
       return {
         ...state,
@@ -76,11 +103,27 @@ export default (state = initialState, action) => {
         error: payload,
       };
     }
-    case CHANGE_COLOR: {
+    case GET_MATH_FACT_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case GET_MATH_FACT_SUCCESS: {
+      const { payload: { data } } = action;
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        mathFact: data,
+      };
+    }
+    case GET_MATH_FACT_FAILURE: {
       const { payload } = action;
       return {
         ...state,
-        color: payload,
+        loading: false,
+        error: payload,
       };
     }
     case CHANGE_PAGE: {
@@ -88,28 +131,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         page: payload,
-      };
-    }
-    case ADD_STARTED:
-      return {
-        ...state,
-        loading: true,
-      };
-    case ADD_SUCCESS: {
-      const { payload } = action;
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        data: payload,
-      };
-    }
-    case ADD_FAILURE: {
-      const { payload } = action;
-      return {
-        ...state,
-        loading: false,
-        error: payload,
       };
     }
     default:

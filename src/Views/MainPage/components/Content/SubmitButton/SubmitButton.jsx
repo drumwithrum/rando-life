@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import { withStyles, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import { default as BasicButton } from '@material-ui/core/Button';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import colors from 'config/colors';
-import Grid from '@material-ui/core/Grid';
 import styles from './SubmitButton.style';
-import { getYearFact, getRandomFact } from '../../../store/actions';
+import { getYearFact, getRandomFact, getMathFact } from '../../../store/actions';
 
 class SubmitButton extends Component {
   handleClick = () => {
-    const { value, getYearFact, page, getRandomFact } = this.props;
+    const {
+      value,
+      getYearFact,
+      page,
+      getRandomFact,
+      getMathFact,
+    } = this.props;
     const {
       start,
-      date,
       year,
       math,
       random,
@@ -22,12 +26,10 @@ class SubmitButton extends Component {
     switch (page) {
       case start.id:
         return (console.log(page));
-      case date.id:
-        return (console.log(page));
       case year.id:
         return (getYearFact(value));
       case math.id:
-        return (console.log(page));
+        return (getMathFact(value));
       case random.id:
         return (getRandomFact());
       default:
@@ -42,7 +44,6 @@ class SubmitButton extends Component {
       <BasicButton
         className={classes.button}
         variant="contained"
-        size="small"
         onClick={this.handleClick}
         style={{ color: (colors[page].color) }}
       >
@@ -54,8 +55,9 @@ class SubmitButton extends Component {
 
 SubmitButton.propTypes = {
   classes: PropTypes.object.isRequired,
-  getYearFact: PropTypes.func.isRequired,
   getRandomFact: PropTypes.func.isRequired,
+  getYearFact: PropTypes.func.isRequired,
+  getMathFact: PropTypes.func.isRequired,
   page: PropTypes.string.isRequired,
 };
 
@@ -63,8 +65,9 @@ SubmitButton.defaultProps = {
 };
 
 const mapDispatchToProps = {
-  getYearFact,
   getRandomFact,
+  getYearFact,
+  getMathFact,
 };
 
 const mapStateToProps = state => ({
