@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import colors from 'config/colors';
+import pagesSettings from 'config/pagesSettings';
 import styles from './ButtonsContainer.style';
 import Button from '../Button';
 import { changePage } from '../../store/actions';
@@ -19,10 +19,10 @@ class ButtonsContainer extends Component {
     const { classes } = this.props;
     return (
       <Grid container className={classes.wrapper}>
-        <Button text="Date fact" icon="date" color={colors.date.color} onClick={() => this.handleClick(colors.date.color, colors.date.id)} />
-        <Button text="Year fact" icon="year" color={colors.year.color} onClick={() => this.handleClick(colors.year.color, colors.year.id)} />
-        <Button text="Math fact" icon="math" color={colors.math.color} onClick={() => this.handleClick(colors.math.color, colors.math.id)} />
-        <Button text="Random fact" icon="random" color={colors.random.color} onClick={() => this.handleClick(colors.random.color, colors.random.id)} />
+        <Button text="Date fact" icon="date" color={pagesSettings.date.color} onClick={() => this.handleClick(pagesSettings.date.color, pagesSettings.date.id)} />
+        <Button text="Year fact" icon="year" color={pagesSettings.year.color} onClick={() => this.handleClick(pagesSettings.year.color, pagesSettings.year.id)} />
+        <Button text="Math fact" icon="math" color={pagesSettings.math.color} onClick={() => this.handleClick(pagesSettings.math.color, pagesSettings.math.id)} />
+        <Button text="Random fact" icon="random" color={pagesSettings.random.color} onClick={() => this.handleClick(pagesSettings.random.color, pagesSettings.random.id)} />
       </Grid>
     );
   }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { withStyles, Typography } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
 import { default as BasicButton } from '@material-ui/core/Button';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import colors from 'config/colors';
+import pagesSettings from 'config/pagesSettings';
+import Input from '../Input';
 import styles from './Date.style';
 import { getDateFact } from '../../../store/actions';
 
@@ -15,68 +15,60 @@ class Date extends Component {
     date: '',
     day: '',
     month: '',
-    error: true,
+    input: {
+      isReady: false,
+      touched: false,
+      errorText: 'Try something like 02.06 or 03,05',
+    },
   }
 
   handleChangeDate = (e) => {
-    const { error, day, month } = this.state;
+    const { input, day, month } = this.state;
+    const pattern = /^([0-2][0-9]|3[0-1])[-.,](0[0-9]|1[0-2])$/;
+    const dateSplit = e.target.value.match(pattern);
     this.setState({
       date: e.target.value,
     });
-    const pattern = /^([0-2][0-9]|3[0-1])[-.,](0[0-9]|1[0-2])$/;
-    const dateSplit = e.target.value.match(pattern);
     if (pattern.test(e.target.value)) {
       this.setState({
-        error: false,
+        input: { ...input, isReady: true },
         day: dateSplit[1],
         month: dateSplit[2],
       });
     } else {
       this.setState({
-        error: true,
+        input: { ...input, isReady: false },
       });
     }
   }
 
   handleClick = () => {
-    const { month, error, day } = this.state;
+    const { month, input: { isReady }, day } = this.state;
     const { getDateFact } = this.props;
-    if (error === false) {
-      console.log(day.replace(/^0+/, ''));
-      console.log(month);
+    if (isReady === true) {
       getDateFact(day.replace(/^0+/, ''), month.replace(/^0+/, ''));
-    } else {
-      alert('pole zostało źle wypełnione');
     }
   }
 
   render() {
     const { classes, dateFact, page } = this.props;
-    const { date } = this.state;
+    const { date, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
-        <TextField
-          id="filled-date"
-          label="Date"
-          type="number"
-          placeholder="dd.mm"
+        <Input
           value={date}
           onChange={this.handleChangeDate}
-          className={classes.textField}
-          style={{ backgroundColor: 'white' }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          margin="normal"
-          variant="filled"
+          example="dd.mm"
+          page="Date"
+          input={input}
         />
         <BasicButton
           className={classes.button}
           variant="contained"
           onClick={this.handleClick}
-          style={{ color: (colors[page].color) }}
+          style={{ color: (pagesSettings[page].color) }}
         >
-          Date Fact
+        Date Fact
         </BasicButton>
         <Typography style={{ fontSize: '24px' }}>
           {dateFact}

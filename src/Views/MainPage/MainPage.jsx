@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { withStyles } from '@material-ui/core';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import colors from 'config/colors';
+import pagesSettings from 'config/pagesSettings';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -18,7 +18,7 @@ class MainPage extends PureComponent {
   render() {
     const { classes, page } = this.props;
     return (
-      <Grid container className={classes.wrapper} style={gradient(colors[page].color)}>
+      <Grid container className={classes.wrapper} style={gradient(pagesSettings[page].color)}>
         <Grid className={classes.header} xs={10}>
           <Typography className={classes.title}>Rando-life</Typography>
         </Grid>
@@ -28,7 +28,7 @@ class MainPage extends PureComponent {
         <Grid className={classes.mainContainer} xs={9}>
           <Content />
         </Grid>
-        <Grid className={classes.footer} style={{ backgroundColor: `${colors[page].color}`, opacity: '0.8' }} xs={9}>
+        <Grid className={classes.footer} style={{ backgroundColor: `${pagesSettings[page].color}`, opacity: '0.8' }} xs={9}>
           <Typography>Footer</Typography>
         </Grid>
       </Grid>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withStyles, Typography } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
+import Input from '../Input';
 import styles from './Math.style';
 import SubmitButton from '../SubmitButton';
 import { getMathFact } from '../../../store/actions';
@@ -12,6 +12,10 @@ import { getMathFact } from '../../../store/actions';
 class Math extends Component {
   state = {
     number: '',
+    input: {
+      touched: false,
+      errorText: '',
+    },
   }
 
   handleChangeNumber = (e) => {
@@ -22,22 +26,15 @@ class Math extends Component {
 
   render() {
     const { classes, mathFact } = this.props;
-    const { number } = this.state;
+    const { number, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
-        <TextField
-          id="filled-number"
-          label="Number"
-          type="number"
+        <Input
           value={number}
           onChange={this.handleChangeNumber}
-          className={classes.textField}
-          style={{ backgroundColor: 'white' }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          margin="normal"
-          variant="filled"
+          page="Number"
+          example=""
+          input={input}
         />
         <SubmitButton value={number} />
         <Typography style={{ fontSize: '24px' }}>

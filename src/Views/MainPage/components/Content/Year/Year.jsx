@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withStyles, Typography } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
+import Input from '../Input';
 import styles from './Year.style';
 import SubmitButton from '../SubmitButton';
 import { getYearFact } from '../../../store/actions';
@@ -12,6 +12,10 @@ import { getYearFact } from '../../../store/actions';
 class Year extends Component {
   state = {
     year: '',
+    input: {
+      touched: false,
+      errorText: 'Try something under 2018',
+    },
   }
 
   handleChangeYear = (e) => {
@@ -22,22 +26,15 @@ class Year extends Component {
 
   render() {
     const { classes, yearFact } = this.props;
-    const { year } = this.state;
+    const { year, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
-        <TextField
-          id="filled-number"
-          label="Year"
-          type="number"
+        <Input
           value={year}
           onChange={this.handleChangeYear}
-          className={classes.textField}
-          style={{ backgroundColor: 'white' }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          margin="normal"
-          variant="filled"
+          page="Year"
+          example=""
+          input={input}
         />
         <SubmitButton value={year} />
         <Typography style={{ fontSize: '24px' }}>

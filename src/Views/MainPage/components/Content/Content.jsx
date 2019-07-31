@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import colors from 'config/colors';
+import pagesSettings from 'config/pagesSettings';
 import Date from './Date';
 import Year from './Year';
 import Math from './Math';
@@ -20,7 +20,7 @@ class Content extends React.PureComponent {
       year,
       math,
       random,
-    } = colors;
+    } = pagesSettings;
     switch (page) {
       case start.id:
         return (console.log(page));

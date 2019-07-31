@@ -4,7 +4,7 @@ import { default as BasicButton } from '@material-ui/core/Button';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import colors from 'config/colors';
+import pagesSettings from 'config/pagesSettings';
 import styles from './SubmitButton.style';
 import { getYearFact, getRandomFact, getMathFact } from '../../../store/actions';
 
@@ -22,7 +22,7 @@ class SubmitButton extends Component {
       year,
       math,
       random,
-    } = colors;
+    } = pagesSettings;
     switch (page) {
       case start.id:
         return (console.log(page));
@@ -39,13 +39,12 @@ class SubmitButton extends Component {
 
   render() {
     const { classes, page } = this.props;
-    console.log(this.props);
     return (
       <BasicButton
         className={classes.button}
         variant="contained"
         onClick={this.handleClick}
-        style={{ color: (colors[page].color) }}
+        style={{ color: (pagesSettings[page].color) }}
       >
         <p>{page} Fact</p>
       </BasicButton>
