@@ -18,14 +18,11 @@ class SubmitButton extends Component {
       getMathFact,
     } = this.props;
     const {
-      start,
       year,
       math,
       random,
     } = pagesSettings;
     switch (page) {
-      case start.id:
-        return (console.log(page));
       case year.id:
         return (getYearFact(value));
       case math.id:
@@ -43,8 +40,9 @@ class SubmitButton extends Component {
       <BasicButton
         className={classes.button}
         variant="contained"
+        color="white"
         onClick={this.handleClick}
-        style={{ color: (pagesSettings[page].color) }}
+        style={{ color: (pagesSettings[page].color), backgroundColor: (pagesSettings[page].colorPale) }}
       >
         <p>{page} Fact</p>
       </BasicButton>
@@ -73,9 +71,9 @@ const mapStateToProps = state => ({
   page: state.mainPage.page,
 });
 
-const composedYear = compose(
+const composedSubmitButton = compose(
   withStyles(styles),
   connect(mapStateToProps, mapDispatchToProps),
 )(SubmitButton);
 
-export default composedYear;
+export default composedSubmitButton;

@@ -15,15 +15,12 @@ class Content extends React.PureComponent {
   renderContent = () => {
     const { page } = this.props;
     const {
-      start,
       date,
       year,
       math,
       random,
     } = pagesSettings;
     switch (page) {
-      case start.id:
-        return (console.log(page));
       case date.id:
         return (<Date />);
       case year.id:

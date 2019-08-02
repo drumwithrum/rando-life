@@ -31,7 +31,6 @@ class ButtonsContainer extends Component {
 // do ustawiana typów propsów (obect,string itp.)
 ButtonsContainer.propTypes = {
   classes: PropTypes.object.isRequired,
-  test: PropTypes.string.isRequired,
   changePage: PropTypes.func.isRequired,
 };
 
@@ -39,12 +38,12 @@ ButtonsContainer.propTypes = {
 ButtonsContainer.defaultProps = {
 };
 
-// sciagasz se state do pliku z Reduxa
+// sciaga se state do pliku z Reduxa
 const mapStateToProps = state => ({
   test: state.mainPage.testowo,
 });
 
-// rozglaszasz akcje ktroe trafjaja do poropsow
+// rozglasza akcje ktroe trafjaja do poropsow
 const mapDispatchToProps = {
   changePage,
 };

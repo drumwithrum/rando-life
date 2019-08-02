@@ -18,6 +18,6 @@ export default () => createStyles({
   button: {
     width: '25%',
     marginBottom: '40px',
-    padding: '1.87%',
+    padding: '1.65%',
   },
 });

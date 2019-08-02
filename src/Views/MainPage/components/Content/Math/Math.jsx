@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import Input from '../Input';
 import styles from './Math.style';
 import SubmitButton from '../SubmitButton';
-import { getMathFact } from '../../../store/actions';
 
 class Math extends Component {
   state = {
@@ -47,7 +46,6 @@ class Math extends Component {
 
 Math.propTypes = {
   classes: PropTypes.object.isRequired,
-  getMathFact: PropTypes.func.isRequired,
   mathFact: PropTypes.string.isRequired,
 };
 
@@ -55,7 +53,6 @@ Math.defaultProps = {
 };
 
 const mapDispatchToProps = {
-  getMathFact,
 };
 
 const mapStateToProps = state => ({

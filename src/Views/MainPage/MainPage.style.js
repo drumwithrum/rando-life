@@ -2,10 +2,10 @@ import { createStyles } from '@material-ui/core';
 import background from 'images/background4.jpg';
 
 
-export const gradient = (color) => {
+export const gradient = (colorPale) => {
   return {
     backgroundSize: 'cover',
-    backgroundImage: `linear-gradient(to bottom, ${color}, rgba(236, 130, 168, 0.2)), url('${background}') `,
+    backgroundImage: `linear-gradient(to bottom, ${colorPale}, rgba(236, 130, 168, 0.2))`,
   };
 };
 
@@ -29,19 +29,20 @@ export default theme => createStyles({
     display: 'block',
     width: '100%',
     color: 'white',
+    marginBottom: '50px',
   },
   mainContainer: {
     boxSizing: 'border-box',
-    backgroundColor: 'rgba(250, 250, 250, 0.5)',
+    backgroundColor: 'rgba(250, 250, 250, 0.8)',
     margin: 'auto',
-    height: '65%',
+    height: '90%',
     padding: '40px',
     textAlign: 'center',
     display: 'flex',
-    flexDirection: 'column',
     justifyContent: 'start',
-    borderRadius: '5px',
+    flexDirection: 'column',
     alignItems: 'center',
+    borderRadius: '5px',
   },
   footer: {
     display: 'flex',

@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import Input from '../Input';
 import styles from './Year.style';
 import SubmitButton from '../SubmitButton';
-import { getYearFact } from '../../../store/actions';
 
 class Year extends Component {
   state = {
@@ -47,7 +46,6 @@ class Year extends Component {
 
 Year.propTypes = {
   classes: PropTypes.object.isRequired,
-  getYearFact: PropTypes.func.isRequired,
   yearFact: PropTypes.string.isRequired,
 };
 
@@ -55,7 +53,6 @@ Year.defaultProps = {
 };
 
 const mapDispatchToProps = {
-  getYearFact,
 };
 
 const mapStateToProps = state => ({

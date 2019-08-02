@@ -4,5 +4,6 @@ export default () => createStyles({
   wrapper: {
     display: 'flex',
     justifyContent: 'space-between',
+    marginBottom: '40px',
   },
 });

@@ -12,11 +12,13 @@ export default () => createStyles({
   textField: {
     width: '25%',
     borderRadius: '5px',
+    marginBottom: '40px',
   },
   alert: {
     color: 'red',
     fontSize: '14px',
-    margin: '5px',
-    marginBottom: '10px',
+    position: 'absolute',
+    zIndex: '10',
+    marginTop: '40px',
   },
 });

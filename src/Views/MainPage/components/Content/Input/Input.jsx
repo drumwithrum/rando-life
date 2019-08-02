@@ -1,25 +1,27 @@
 import React, { PureComponent } from 'react';
 import { withStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import pagesSettings from 'config/pagesSettings';
 import Grid from '@material-ui/core/Grid';
 import styles from './Input.style';
 
 class Input extends PureComponent {
   state = {
-    opacity: '0',
+    error: false,
   }
 
   losesFocus = () => {
-    console.log(this.props);
     const { input: { isReady, touched } } = this.props;
     if (touched === false && isReady === false) {
       this.setState({
-        opacity: '1',
+        error: true,
       });
     } else {
       this.setState({
-        opacity: '0',
+        error: 'false',
       });
     }
   };
@@ -33,10 +35,32 @@ class Input extends PureComponent {
       example,
       input,
     } = this.props;
-    const { opacity } = this.state;
+    const { error } = this.state;
+    const CssTextField = withStyles({
+      root: {
+        '& label.Mui-focused': {
+          color: (pagesSettings[page].color),
+        },
+        '& .MuiInput-underline:after': {
+          borderBottomColor: (pagesSettings[page].color),
+        },
+        '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+            borderColor: 'grey',
+          },
+          '&:hover fieldset': {
+            borderColor: (pagesSettings[page].colorPale),
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: (pagesSettings[page].color),
+          },
+        },
+      },
+    })(TextField);
+
     return (
       <Grid container className={classes.wrapper}>
-        <TextField
+        <CssTextField
           id="filled-date"
           label={page}
           type="number"
@@ -44,25 +68,39 @@ class Input extends PureComponent {
           value={value}
           onChange={onChange}
           className={classes.textField}
-          style={{ backgroundColor: 'white' }}
           InputLabelProps={{
             shrink: true,
           }}
           margin="normal"
-          variant="filled"
+          variant="outlined"
+          color="inherit"
           inputProps={{
             onBlur: () => this.losesFocus(),
           }}
         />
-        <Typography
-          className={classes.alert}
-          style={{ opacity: `${opacity}` }}
-        >
-          {input.errorText}
-        </Typography>
+        {error ? <div className={classes.alert}>{input.errorText}</div> : null}
       </Grid>
     );
   }
 }
 
-export default withStyles(styles)(Input);
+Input.propTypes = {
+  page: PropTypes.string.isRequired,
+};
+
+Input.defaultProps = {
+};
+
+const mapDispatchToProps = {
+};
+
+const mapStateToProps = state => ({
+  page: state.mainPage.page,
+});
+
+const composedInput = compose(
+  withStyles(styles),
+  connect(mapStateToProps, mapDispatchToProps),
+)(Input);
+
+export default composedInput;
