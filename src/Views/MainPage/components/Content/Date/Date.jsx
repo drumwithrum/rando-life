@@ -55,24 +55,28 @@ class Date extends Component {
     const { date, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
-        <Input
-          value={date}
-          onChange={this.handleChangeDate}
-          example="dd.mm"
-          page="Date"
-          input={input}
-        />
-        <BasicButton
-          className={classes.button}
-          variant="contained"
-          onClick={this.handleClick}
-          style={{ color: (pagesSettings[page].color) }}
-        >
-        Date Fact
-        </BasicButton>
-        <Typography style={{ fontSize: '24px' }}>
-          {dateFact}
-        </Typography>
+        <Grid xs={12} className={classes.gridTop}>
+          <Input
+            value={date}
+            onChange={this.handleChangeDate}
+            example="dd.mm"
+            page="Date"
+            input={input}
+          />
+          <BasicButton
+            className={classes.button}
+            variant="contained"
+            onClick={this.handleClick}
+            style={{ color: (pagesSettings[page].color), backgroundColor: (pagesSettings[page].colorPale) }}
+          >
+            <p>Date Fact</p>
+          </BasicButton>
+        </Grid>
+        <Grid xs={11} className={classes.gridBot} style={{ border: `1px solid ${pagesSettings[page].colorPale}` }}>
+          <Typography style={{ fontSize: '24px', color: `${pagesSettings[page].color}` }}>
+            {dateFact}
+          </Typography>
+        </Grid>
       </Grid>
     );
   }

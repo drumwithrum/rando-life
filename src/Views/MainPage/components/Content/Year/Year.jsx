@@ -28,17 +28,21 @@ class Year extends Component {
     const { year, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
-        <Input
-          value={year}
-          onChange={this.handleChangeYear}
-          page="Year"
-          example=""
-          input={input}
-        />
-        <SubmitButton value={year} />
-        <Typography style={{ fontSize: '24px' }}>
-          {yearFact}
-        </Typography>
+        <Grid xs={12} className={classes.gridTop}>
+          <Input
+            value={year}
+            onChange={this.handleChangeYear}
+            page="Year"
+            example=""
+            input={input}
+          />
+          <SubmitButton value={year} />
+        </Grid>
+        <Grid xs={11} className={classes.gridBot} style={{ border: '1px solid rgba(236, 130, 168, 0.2)' }}>
+          <Typography style={{ fontSize: '24px', color: 'rgba(236, 130, 168, 0.9)' }}>
+            {yearFact}
+          </Typography>
+        </Grid>
       </Grid>
     );
   }

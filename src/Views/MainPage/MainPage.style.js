@@ -43,6 +43,7 @@ export default theme => createStyles({
     flexDirection: 'column',
     alignItems: 'center',
     borderRadius: '5px',
+    zIndex: '5',
   },
   footer: {
     display: 'flex',

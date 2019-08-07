@@ -6,7 +6,7 @@ import pagesSettings from 'config/pagesSettings';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { ButtonsContainer, Content } from './components/index';
+import { ButtonsContainer, Content, Decorations } from './components/index';
 import styles, { gradient } from './MainPage.style';
 
 class MainPage extends PureComponent {
@@ -20,12 +20,13 @@ class MainPage extends PureComponent {
         {/* <Grid className={classes.buttonsContainer} xs={10}>
 
         </Grid> */}
+        <Decorations />
         <Grid className={classes.mainContainer} xs={10}>
           <ButtonsContainer />
           <Content />
         </Grid>
         <Grid className={classes.footer} style={{ backgroundColor: `${pagesSettings[page].color}`, opacity: '0.8' }} xs={10}>
-          <Typography>Footer</Typography>
+          <Typography>Rando-life</Typography>
         </Grid>
       </Grid>
     );

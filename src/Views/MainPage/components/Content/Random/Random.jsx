@@ -6,15 +6,20 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import styles from './Random.style';
 import SubmitButton from '../SubmitButton';
-import { getRandomFact } from '../../../store/actions';
 
 class Random extends PureComponent {
   render() {
     const { randomFact, classes } = this.props;
     return (
       <Grid className={classes.wrapper}>
-        <SubmitButton />
-        <Typography className={classes.text}>{randomFact}</Typography>
+        <Grid xs={12} className={classes.gridTop}>
+          <SubmitButton />
+        </Grid>
+        <Grid xs={11} className={classes.gridBot}>
+          <Typography className={classes.text}>
+            {randomFact}
+          </Typography>
+        </Grid>
       </Grid>
     );
   }
@@ -22,7 +27,6 @@ class Random extends PureComponent {
 
 Random.propTypes = {
   classes: PropTypes.object.isRequired,
-  getRandomFact: PropTypes.func.isRequired,
   randomFact: PropTypes.string.isRequired,
 };
 
@@ -30,7 +34,6 @@ Random.defaultProps = {
 };
 
 const mapDispatchToProps = {
-  getRandomFact,
 };
 
 const mapStateToProps = state => ({

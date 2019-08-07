@@ -21,7 +21,7 @@ class Input extends PureComponent {
       });
     } else {
       this.setState({
-        error: 'false',
+        error: false,
       });
     }
   };
@@ -36,31 +36,31 @@ class Input extends PureComponent {
       input,
     } = this.props;
     const { error } = this.state;
-    const CssTextField = withStyles({
-      root: {
-        '& label.Mui-focused': {
-          color: (pagesSettings[page].color),
-        },
-        '& .MuiInput-underline:after': {
-          borderBottomColor: (pagesSettings[page].color),
-        },
-        '& .MuiOutlinedInput-root': {
-          '& fieldset': {
-            borderColor: 'grey',
-          },
-          '&:hover fieldset': {
-            borderColor: (pagesSettings[page].colorPale),
-          },
-          '&.Mui-focused fieldset': {
-            borderColor: (pagesSettings[page].color),
-          },
-        },
-      },
-    })(TextField);
+    // const CssTextField = withStyles({
+    //   root: {
+    //     '& label.Mui-focused': {
+    //       color: (pagesSettings[page].color),
+    //     },
+    //     '& .MuiInput-underline:after': {
+    //       borderBottomColor: (pagesSettings[page].color),
+    //     },
+    //     '& .MuiOutlinedInput-root': {
+    //       '& fieldset': {
+    //         borderColor: 'grey',
+    //       },
+    //       '&:hover fieldset': {
+    //         borderColor: (pagesSettings[page].colorPale),
+    //       },
+    //       '&.Mui-focused fieldset': {
+    //         borderColor: (pagesSettings[page].color),
+    //       },
+    //     },
+    //   },
+    // })(TextField);
 
     return (
       <Grid container className={classes.wrapper}>
-        <CssTextField
+        <TextField
           id="filled-date"
           label={page}
           type="number"
@@ -70,6 +70,7 @@ class Input extends PureComponent {
           className={classes.textField}
           InputLabelProps={{
             shrink: true,
+            // classes: { focused: }
           }}
           margin="normal"
           variant="outlined"

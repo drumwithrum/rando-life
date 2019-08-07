@@ -28,17 +28,21 @@ class Math extends Component {
     const { number, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
-        <Input
-          value={number}
-          onChange={this.handleChangeNumber}
-          page="Number"
-          example=""
-          input={input}
-        />
-        <SubmitButton value={number} />
-        <Typography style={{ fontSize: '24px' }}>
-          {mathFact}
-        </Typography>
+        <Grid xs={12} className={classes.gridTop}>
+          <Input
+            value={number}
+            onChange={this.handleChangeNumber}
+            page="Number"
+            example=""
+            input={input}
+          />
+          <SubmitButton value={number} />
+        </Grid>
+        <Grid xs={11} className={classes.gridBot} style={{ border: '1px solid rgba(255, 180, 60, 0.2)' }}>
+          <Typography style={{ fontSize: '24px', color: 'rgba(255, 180, 60, 0.9)' }}>
+            {mathFact}
+          </Typography>
+        </Grid>
       </Grid>
     );
   }

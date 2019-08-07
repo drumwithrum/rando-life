@@ -40,7 +40,6 @@ class SubmitButton extends Component {
       <BasicButton
         className={classes.button}
         variant="contained"
-        color="white"
         onClick={this.handleClick}
         style={{ color: (pagesSettings[page].color), backgroundColor: (pagesSettings[page].colorPale) }}
       >
