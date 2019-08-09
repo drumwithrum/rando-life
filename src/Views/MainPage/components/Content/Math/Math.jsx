@@ -38,8 +38,8 @@ class Math extends Component {
           />
           <SubmitButton value={number} />
         </Grid>
-        <Grid xs={11} className={classes.gridBot} style={{ border: '1px solid rgba(255, 180, 60, 0.2)' }}>
-          <Typography style={{ fontSize: '24px', color: 'rgba(255, 180, 60, 0.9)' }}>
+        <Grid xs={11} className={classes.gridBot}>
+          <Typography className={classes.text}>
             {mathFact}
           </Typography>
         </Grid>

@@ -21,7 +21,4 @@ Decorations.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-Decorations.defaultProps = {
-};
-
 export default withStyles(styles)(Decorations);

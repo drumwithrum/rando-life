@@ -25,10 +25,11 @@ export default () => createStyles({
     height: '100%',
     padding: '20px 40px',
     borderRadius: '5px',
+    border: '1px solid rgba(255, 180, 60, 0.2)',
   },
   text: {
     fontSize: '24px',
-    height: '100%',
+    color: 'rgba(255, 180, 60, 0.9)',
   },
   textField: {
     width: '25%',

@@ -38,8 +38,8 @@ class Year extends Component {
           />
           <SubmitButton value={year} />
         </Grid>
-        <Grid xs={11} className={classes.gridBot} style={{ border: '1px solid rgba(236, 130, 168, 0.2)' }}>
-          <Typography style={{ fontSize: '24px', color: 'rgba(236, 130, 168, 0.9)' }}>
+        <Grid xs={11} className={classes.gridBot}>
+          <Typography className={classes.text}>
             {yearFact}
           </Typography>
         </Grid>

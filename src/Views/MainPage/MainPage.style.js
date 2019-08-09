@@ -16,10 +16,6 @@ export default theme => createStyles({
     display: 'flex',
     justifyContent: 'center',
   },
-  header: {
-    textAlign: 'center',
-    margin: '2%',
-  },
   title: {
     fontSize: '50px',
     color: 'white',

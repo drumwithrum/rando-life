@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import pagesSettings from 'config/pagesSettings';
 import Grid from '@material-ui/core/Grid';
 import styles from './Input.style';
 
@@ -36,28 +35,6 @@ class Input extends PureComponent {
       input,
     } = this.props;
     const { error } = this.state;
-    // const CssTextField = withStyles({
-    //   root: {
-    //     '& label.Mui-focused': {
-    //       color: (pagesSettings[page].color),
-    //     },
-    //     '& .MuiInput-underline:after': {
-    //       borderBottomColor: (pagesSettings[page].color),
-    //     },
-    //     '& .MuiOutlinedInput-root': {
-    //       '& fieldset': {
-    //         borderColor: 'grey',
-    //       },
-    //       '&:hover fieldset': {
-    //         borderColor: (pagesSettings[page].colorPale),
-    //       },
-    //       '&.Mui-focused fieldset': {
-    //         borderColor: (pagesSettings[page].color),
-    //       },
-    //     },
-    //   },
-    // })(TextField);
-
     return (
       <Grid container className={classes.wrapper}>
         <TextField
@@ -70,7 +47,6 @@ class Input extends PureComponent {
           className={classes.textField}
           InputLabelProps={{
             shrink: true,
-            // classes: { focused: }
           }}
           margin="normal"
           variant="outlined"

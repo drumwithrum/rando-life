@@ -14,12 +14,6 @@ class MainPage extends PureComponent {
     const { classes, page } = this.props;
     return (
       <Grid container className={classes.wrapper} style={gradient(pagesSettings[page].colorPale)}>
-        {/* <Grid className={classes.header} xs={10}>
-          <Typography className={classes.title}>Rando-life</Typography>
-        </Grid> */}
-        {/* <Grid className={classes.buttonsContainer} xs={10}>
-
-        </Grid> */}
         <Decorations />
         <Grid className={classes.mainContainer} xs={10}>
           <ButtonsContainer />
