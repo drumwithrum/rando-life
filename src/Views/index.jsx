@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
 import configureStore from 'store/configureStore';
-import StartingPage from './StartingPage';
+import MainPage from './MainPage';
 
 const theme = createMuiTheme();
 const history = createBrowserHistory();
@@ -17,7 +17,7 @@ const Views = () => (
     <ConnectedRouter history={history}>
       <MuiThemeProvider theme={theme}>
         <Switch>
-          <Route exact path="/" component={() => <StartingPage text="hehe xd" />} />
+          <Route exact path="/" component={() => <MainPage />} />
         </Switch>
       </MuiThemeProvider>
     </ConnectedRouter>

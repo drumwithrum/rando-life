@@ -13,6 +13,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "harmony-reflect": "^1.6.1",
     "history": "^4.9.0",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -29,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "component": "hygen component new --name"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "hygen": "^4.0.7"
   }
 }
