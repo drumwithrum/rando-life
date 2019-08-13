@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles, Typography } from '@material-ui/core';
-import { default as BasicButton } from '@material-ui/core/Button';
+import BasicButton from '@material-ui/core/Button';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -23,7 +23,7 @@ class Date extends Component {
   }
 
   handleChangeDate = (e) => {
-    const { input, day, month } = this.state;
+    const { input } = this.state;
     const pattern = /^([0-2][0-9]|3[0-1])[-.,](0[0-9]|1[0-2])$/;
     const dateSplit = e.target.value.match(pattern);
     this.setState({
@@ -46,7 +46,9 @@ class Date extends Component {
     const { month, input: { isReady }, day } = this.state;
     const { getDateFact } = this.props;
     if (isReady) {
-      getDateFact(day.replace(/^0+/, ''), month.replace(/^0+/, ''));
+      const parsedDay = day.replace(/^0+/, '');
+      const parsedMonth = month.replace(/^0+/, '');
+      getDateFact(parsedDay, parsedMonth);
     }
   }
 
@@ -55,7 +57,7 @@ class Date extends Component {
     const { date, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
-        <Grid xs={12} className={classes.gridTop}>
+        <Grid xs={12} className={classes.gridTop} item>
           <Input
             value={date}
             onChange={this.handleChangeDate}
@@ -67,12 +69,20 @@ class Date extends Component {
             className={classes.button}
             variant="contained"
             onClick={this.handleClick}
-            style={{ color: (pagesSettings[page].color), backgroundColor: (pagesSettings[page].colorPale) }}
+            style={{
+              color: (pagesSettings[page].color),
+              backgroundColor: (pagesSettings[page].colorPale),
+            }}
           >
             <p>Date Fact</p>
           </BasicButton>
         </Grid>
-        <Grid xs={11} className={classes.gridBot} style={{ border: `1px solid ${pagesSettings[page].colorPale}` }}>
+        <Grid
+          xs={11}
+          className={classes.gridBot}
+          style={{ border: `1px solid ${pagesSettings[page].colorPale}` }}
+          item
+        >
           <Typography style={{ fontSize: '24px', color: `${pagesSettings[page].color}` }}>
             {dateFact}
           </Typography>

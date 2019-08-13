@@ -14,6 +14,8 @@ export default () => createStyles({
     borderRadius: '10px',
     boxSizing: 'border-box',
     textAlign: 'center',
-    paddingTop: '5px',
+    paddingTop: '8px',
+    width: 40,
+    height: 40,
   },
 });

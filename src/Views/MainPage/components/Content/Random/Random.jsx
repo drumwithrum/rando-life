@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { withStyles, Typography } from '@material-ui/core';
-import { default as BasicButton } from '@material-ui/core/Button';
+import BasicButton from '@material-ui/core/Button';
 import pagesSettings from 'config/pagesSettings';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -19,17 +19,20 @@ class Random extends PureComponent {
     const { randomFact, classes, page } = this.props;
     return (
       <Grid className={classes.wrapper}>
-        <Grid xs={12} className={classes.gridTop}>
+        <Grid xs={12} className={classes.gridTop} item>
           <BasicButton
             className={classes.button}
             variant="contained"
             onClick={this.handleClick}
-            style={{ color: (pagesSettings[page].color), backgroundColor: (pagesSettings[page].colorPale) }}
+            style={{
+              color: (pagesSettings[page].color),
+              backgroundColor: (pagesSettings[page].colorPale),
+            }}
           >
             <p>Random Fact</p>
           </BasicButton>
         </Grid>
-        <Grid xs={11} className={classes.gridBot}>
+        <Grid xs={11} className={classes.gridBot} item>
           <Typography className={classes.text}>
             {randomFact}
           </Typography>

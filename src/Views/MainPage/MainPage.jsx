@@ -15,12 +15,14 @@ class MainPage extends PureComponent {
     return (
       <Grid container className={classes.wrapper} style={gradient(pagesSettings[page].colorPale)}>
         <Decorations />
-        <Grid className={classes.mainContainer} xs={10}>
+        <Grid className={classes.mainContainer} xs={10} item>
           <ButtonsContainer />
           <Content />
         </Grid>
-        <Grid className={classes.footer} style={{ backgroundColor: `${pagesSettings[page].color}` }} xs={10}>
-          <Typography>Rando-life</Typography>
+        <Grid className={classes.footer} style={{ backgroundColor: `${pagesSettings[page].color}` }} xs={10} item>
+          <Typography className={classes.text}>
+            COPYRIGHTS © 2019 ALL RIGHTS RESERVED BY WIKTORIA OLEŚ
+          </Typography>
         </Grid>
       </Grid>
     );

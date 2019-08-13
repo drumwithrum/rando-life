@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles, Typography, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { default as BasicButton } from '@material-ui/core/Button';
+import BasicButton from '@material-ui/core/Button';
 import icons from 'icons';
 import styles from './Button.style';
 
@@ -10,7 +10,7 @@ const Button = ({
   text,
   icon,
   color,
-  onClick
+  onClick,
 }) => (
   <BasicButton
     className={classes.button}
@@ -18,8 +18,8 @@ const Button = ({
     style={{ backgroundColor: `${color}` }}
     onClick={onClick}
   >
-    <Grid xs={2} className={classes.iconContainer}>
-      <img src={icons[icon]} alt=":<" />
+    <Grid className={classes.iconContainer}>
+      <img src={icons[icon]} alt="icon" />
     </Grid>
     <Typography>
       {text}
@@ -30,9 +30,15 @@ const Button = ({
 Button.propTypes = {
   classes: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
+  text: PropTypes.string,
+  icon: PropTypes.string,
+  color: PropTypes.string,
 };
 
 Button.defaultProps = {
+  text: 'button',
+  icon: 'date',
+  color: '',
 };
 
 export default withStyles(styles)(Button);

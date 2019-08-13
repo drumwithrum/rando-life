@@ -1,12 +1,12 @@
 import { createStyles } from '@material-ui/core';
 
-const basic = () => ({
+const basic = {
   borderRadius: '50%',
   position: 'absolute',
   animationTimingFunction: 'linear',
   animationIterationCount: 'infinite',
   zIndex: '1',
-});
+};
 export default () => createStyles({
   circle: {
     width: '125px',
@@ -16,7 +16,7 @@ export default () => createStyles({
     backgroundImage: 'linear-gradient(to top right, #6370A4, #6370A4, #98A4DB, #E9EFFF)',
     animationName: '$move',
     animationDuration: '6s',
-    ...basic(),
+    ...basic,
   },
   circle2: {
     width: '70px',
@@ -26,7 +26,7 @@ export default () => createStyles({
     backgroundImage: 'linear-gradient(to top right, #FFB43C, #FFB88E, #FAE4DC)',
     animationName: '$movement',
     animationDuration: '7s',
-    ...basic(),
+    ...basic,
   },
   circle3: {
     width: '80px',
@@ -36,7 +36,7 @@ export default () => createStyles({
     backgroundImage: 'linear-gradient(to bottom right, #55774A, #64B450, #DFF8D5)',
     animationName: '$move',
     animationDuration: '7s',
-    ...basic(),
+    ...basic,
   },
   circle4: {
     width: '150px',
@@ -46,7 +46,7 @@ export default () => createStyles({
     backgroundImage: 'linear-gradient(to bottom left, #FAEDF9, #EC82A8, #A0769F)',
     animationName: '$movement',
     animationDuration: '9s',
-    ...basic(),
+    ...basic,
   },
   circle5: {
     width: '50px',
@@ -56,7 +56,7 @@ export default () => createStyles({
     backgroundImage: 'linear-gradient(to top right, #FFB43C, #FFB88E, #FAE4DC)',
     animationName: '$movement',
     animationDuration: '8s',
-    ...basic(),
+    ...basic,
   },
   circle6: {
     width: '40px',
@@ -66,7 +66,7 @@ export default () => createStyles({
     backgroundImage: 'linear-gradient(to bottom left, #FAEDF9, #EC82A8, #A0769F)',
     animationName: '$move',
     animationDuration: '4s',
-    ...basic(),
+    ...basic,
   },
   circle7: {
     width: '20px',
@@ -76,7 +76,7 @@ export default () => createStyles({
     backgroundImage: 'linear-gradient(to bottom right, #55774A, #64B450, #DFF8D5)',
     animationName: '$movement',
     animationDuration: '8s',
-    ...basic(),
+    ...basic,
   },
   circle8: {
     width: 30,
@@ -86,7 +86,7 @@ export default () => createStyles({
     backgroundImage: 'linear-gradient(to top right, #6370A4, #6370A4, #98A4DB, #E9EFFF)',
     animationName: '$move',
     animationDuration: '5s',
-    ...basic(),
+    ...basic,
   },
   '@keyframes move': {
     '0%': {

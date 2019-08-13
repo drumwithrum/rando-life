@@ -1,11 +1,9 @@
 import { createStyles } from '@material-ui/core';
 
-export const gradient = (colorPale) => {
-  return {
-    backgroundSize: 'cover',
-    backgroundImage: `linear-gradient(to bottom, ${colorPale}, rgba(236, 130, 168, 0.2))`,
-  };
-};
+export const gradient = colorPale => ({
+  backgroundSize: 'cover',
+  backgroundImage: `linear-gradient(to bottom, ${colorPale}, rgba(236, 130, 168, 0.2))`,
+});
 
 export default theme => createStyles({
   wrapper: {
@@ -46,6 +44,10 @@ export default theme => createStyles({
     backgroundColor: 'rgba(250, 250, 250, 0.2)',
     color: 'white',
     borderRadius: '5px',
-    opacity: '0.8',
+    opacity: '0.7',
+  },
+  text: {
+    fontSize: '12px',
+    opacity: '0.6',
   },
 });

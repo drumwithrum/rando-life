@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { getApiCall } from '../../../utils/api';
 import {
   CHANGE_PAGE,
   ADD_SUCCESS,
@@ -39,20 +39,10 @@ export function getRandomFactFailure(error) {
 
 export function getRandomFact() {
   return async (dispatch) => {
-    const apiTest = axios.create({
-      method: 'GET',
-      baseURL: 'https://numbersapi.p.rapidapi.com/random/trivia',
-      headers: {
-        'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com',
-        'X-RapidAPI-Key': 'a0e5fcc8d4msh1ec1af95e384ca6p1a79aajsnc6d3c773f4c0',
-      },
-      params: {
-        json: true,
-      },
-    });
+    const callApi = getApiCall('random/trivia');
     try {
       dispatch(getRandomFactRequest());
-      const response = await apiTest();
+      const response = await callApi();
       dispatch(getRandomFactSuccess(response));
     } catch (error) {
       dispatch(getRandomFactFailure(error));
@@ -73,20 +63,10 @@ export function getDateFactFailure(error) {
 
 export function getDateFact(day, month) {
   return async (dispatch) => {
-    const apiTest = axios.create({
-      method: 'GET',
-      baseURL: `https://numbersapi.p.rapidapi.com/${month}/${day}/date`,
-      headers: {
-        'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com',
-        'X-RapidAPI-Key': 'a0e5fcc8d4msh1ec1af95e384ca6p1a79aajsnc6d3c773f4c0',
-      },
-      params: {
-        json: true,
-      },
-    });
+    const callApi = getApiCall(`${month}/${day}/date`);
     try {
       dispatch(getDateFactRequest());
-      const response = await apiTest();
+      const response = await callApi();
       dispatch(getDateFactSuccess(response));
     } catch (error) {
       dispatch(getDateFactFailure(error));
@@ -107,20 +87,10 @@ export function getYearFactFailure(error) {
 
 export function getYearFact(year) {
   return async (dispatch) => {
-    const apiTest = axios.create({
-      method: 'GET',
-      baseURL: `https://numbersapi.p.rapidapi.com/${year}/year`,
-      headers: {
-        'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com',
-        'X-RapidAPI-Key': 'a0e5fcc8d4msh1ec1af95e384ca6p1a79aajsnc6d3c773f4c0',
-      },
-      params: {
-        json: true,
-      },
-    });
+    const callApi = getApiCall(`${year}/year`);
     try {
       dispatch(getYearFactRequest());
-      const response = await apiTest();
+      const response = await callApi();
       dispatch(getYearFactSuccess(response));
     } catch (error) {
       dispatch(getYearFactFailure(error));
@@ -142,20 +112,10 @@ export function getMathFactFailure(error) {
 
 export function getMathFact(number) {
   return async (dispatch) => {
-    const apiTest = axios.create({
-      method: 'GET',
-      baseURL: `https://numbersapi.p.rapidapi.com/${number}/math`,
-      headers: {
-        'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com',
-        'X-RapidAPI-Key': 'a0e5fcc8d4msh1ec1af95e384ca6p1a79aajsnc6d3c773f4c0',
-      },
-      params: {
-        json: true,
-      },
-    });
+    const callApi = getApiCall(`${number}/math`);
     try {
       dispatch(getMathFactRequest());
-      const response = await apiTest();
+      const response = await callApi();
       dispatch(getMathFactSuccess(response));
     } catch (error) {
       dispatch(getMathFactFailure(error));

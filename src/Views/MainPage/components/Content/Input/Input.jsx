@@ -12,17 +12,9 @@ class Input extends PureComponent {
     error: false,
   }
 
-  losesFocus = () => {
+  handleBlur = () => {
     const { input: { isReady, touched } } = this.props;
-    if (touched === false && isReady === false) {
-      this.setState({
-        error: true,
-      });
-    } else {
-      this.setState({
-        error: false,
-      });
-    }
+    this.setState({ error: !touched && !isReady });
   };
 
   render() {
@@ -30,8 +22,8 @@ class Input extends PureComponent {
       classes,
       value,
       onChange,
-      page,
       example,
+      page,
       input,
     } = this.props;
     const { error } = this.state;
@@ -52,7 +44,7 @@ class Input extends PureComponent {
           variant="outlined"
           color="inherit"
           inputProps={{
-            onBlur: () => this.losesFocus(),
+            onBlur: () => this.handleBlur(),
           }}
         />
         {error ? <div className={classes.alert}>{input.errorText}</div> : null}
@@ -63,6 +55,11 @@ class Input extends PureComponent {
 
 Input.propTypes = {
   page: PropTypes.string.isRequired,
+  input: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  example: PropTypes.string.isRequired,
 };
 
 Input.defaultProps = {
