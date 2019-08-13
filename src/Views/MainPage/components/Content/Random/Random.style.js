@@ -15,7 +15,7 @@ export default () => createStyles({
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
-    marginTop: 82,
+    marginTop: 77,
   },
   gridBot: {
     display: 'flex',
@@ -30,5 +30,9 @@ export default () => createStyles({
   text: {
     fontSize: '24px',
     color: 'rgba(100, 180, 80, 0.9)',
+  },
+  button: {
+    width: '25%',
+    marginBottom: '40px',
   },
 });

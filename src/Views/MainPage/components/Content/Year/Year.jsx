@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { withStyles, Typography } from '@material-ui/core';
+import { default as BasicButton } from '@material-ui/core/Button';
+import pagesSettings from 'config/pagesSettings';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Input from '../Input';
 import styles from './Year.style';
-import SubmitButton from '../SubmitButton';
+import { getYearFact } from '../../../store/actions';
 
 class Year extends Component {
   state = {
     year: '',
     input: {
       touched: false,
-      errorText: 'Try something under 2018',
+      errorText: '',
     },
   }
 
@@ -23,8 +25,14 @@ class Year extends Component {
     });
   }
 
+  handleClick = () => {
+    const { year } = this.state;
+    const { getYearFact } = this.props;
+    getYearFact(year);
+  }
+
   render() {
-    const { classes, yearFact } = this.props;
+    const { classes, yearFact, page } = this.props;
     const { year, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
@@ -36,7 +44,14 @@ class Year extends Component {
             example=""
             input={input}
           />
-          <SubmitButton value={year} />
+          <BasicButton
+            className={classes.button}
+            variant="contained"
+            onClick={this.handleClick}
+            style={{ color: (pagesSettings[page].color), backgroundColor: (pagesSettings[page].colorPale) }}
+          >
+            <p>Year Fact</p>
+          </BasicButton>
         </Grid>
         <Grid xs={11} className={classes.gridBot}>
           <Typography className={classes.text}>
@@ -51,16 +66,20 @@ class Year extends Component {
 Year.propTypes = {
   classes: PropTypes.object.isRequired,
   yearFact: PropTypes.string.isRequired,
+  getYearFact: PropTypes.func.isRequired,
+  page: PropTypes.string.isRequired,
 };
 
 Year.defaultProps = {
 };
 
 const mapDispatchToProps = {
+  getYearFact,
 };
 
 const mapStateToProps = state => ({
   yearFact: state.mainPage.yearFact,
+  page: state.mainPage.page,
 });
 
 const composedYear = compose(

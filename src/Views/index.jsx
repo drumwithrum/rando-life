@@ -17,7 +17,7 @@ const Views = () => (
     <ConnectedRouter history={history}>
       <MuiThemeProvider theme={theme}>
         <Switch>
-          <Route exact path="/" component={() => <MainPage text="hehe xd" />} />
+          <Route exact path="/" component={() => <MainPage />} />
         </Switch>
       </MuiThemeProvider>
     </ConnectedRouter>

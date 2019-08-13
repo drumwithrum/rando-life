@@ -5,7 +5,13 @@ import { default as BasicButton } from '@material-ui/core/Button';
 import icons from 'icons';
 import styles from './Button.style';
 
-const Button = ({ classes, text, icon, color, onClick }) => (
+const Button = ({
+  classes,
+  text,
+  icon,
+  color,
+  onClick
+}) => (
   <BasicButton
     className={classes.button}
     variant="contained"

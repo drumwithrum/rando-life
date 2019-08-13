@@ -14,6 +14,7 @@ const Decorations = ({ classes }) => (
     <figure className={classes.circle6} />
     <figure className={classes.circle7} />
     <figure className={classes.circle8} />
+    {/* <Circle color="blue" size="120px" time="8s" /> */}
   </Grid>
 );
 

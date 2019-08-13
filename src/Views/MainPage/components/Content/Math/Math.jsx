@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { withStyles, Typography } from '@material-ui/core';
+import { default as BasicButton } from '@material-ui/core/Button';
+import pagesSettings from 'config/pagesSettings';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Input from '../Input';
 import styles from './Math.style';
-import SubmitButton from '../SubmitButton';
+import { getMathFact } from '../../../store/actions';
 
 class Math extends Component {
   state = {
@@ -23,8 +25,14 @@ class Math extends Component {
     });
   }
 
+  handleClick = () => {
+    const { number } = this.state;
+    const { getMathFact } = this.props;
+    getMathFact(number);
+  }
+
   render() {
-    const { classes, mathFact } = this.props;
+    const { classes, mathFact, page } = this.props;
     const { number, input } = this.state;
     return (
       <Grid className={classes.wrapper}>
@@ -36,7 +44,14 @@ class Math extends Component {
             example=""
             input={input}
           />
-          <SubmitButton value={number} />
+          <BasicButton
+            className={classes.button}
+            variant="contained"
+            onClick={this.handleClick}
+            style={{ color: (pagesSettings[page].color), backgroundColor: (pagesSettings[page].colorPale) }}
+          >
+            <p>Math Fact</p>
+          </BasicButton>
         </Grid>
         <Grid xs={11} className={classes.gridBot}>
           <Typography className={classes.text}>
@@ -51,16 +66,20 @@ class Math extends Component {
 Math.propTypes = {
   classes: PropTypes.object.isRequired,
   mathFact: PropTypes.string.isRequired,
+  getMathFact: PropTypes.func.isRequired,
+  page: PropTypes.string.isRequired,
 };
 
 Math.defaultProps = {
 };
 
 const mapDispatchToProps = {
+  getMathFact,
 };
 
 const mapStateToProps = state => ({
   mathFact: state.mainPage.mathFact,
+  page: state.mainPage.page,
 });
 
 const composedMath = compose(

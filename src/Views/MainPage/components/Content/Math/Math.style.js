@@ -35,4 +35,8 @@ export default () => createStyles({
     width: '25%',
     borderRadius: '5px',
   },
+  button: {
+    width: '25%',
+    marginBottom: '40px',
+  },
 });

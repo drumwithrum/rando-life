@@ -19,7 +19,7 @@ class MainPage extends PureComponent {
           <ButtonsContainer />
           <Content />
         </Grid>
-        <Grid className={classes.footer} style={{ backgroundColor: `${pagesSettings[page].color}`, opacity: '0.8' }} xs={10}>
+        <Grid className={classes.footer} style={{ backgroundColor: `${pagesSettings[page].color}` }} xs={10}>
           <Typography>Rando-life</Typography>
         </Grid>
       </Grid>

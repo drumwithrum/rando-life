@@ -1,6 +1,4 @@
 import { createStyles } from '@material-ui/core';
-import background from 'images/background4.jpg';
-
 
 export const gradient = (colorPale) => {
   return {
@@ -48,5 +46,6 @@ export default theme => createStyles({
     backgroundColor: 'rgba(250, 250, 250, 0.2)',
     color: 'white',
     borderRadius: '5px',
+    opacity: '0.8',
   },
 });

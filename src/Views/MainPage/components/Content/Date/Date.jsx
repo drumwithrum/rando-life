@@ -45,7 +45,7 @@ class Date extends Component {
   handleClick = () => {
     const { month, input: { isReady }, day } = this.state;
     const { getDateFact } = this.props;
-    if (isReady === true) {
+    if (isReady) {
       getDateFact(day.replace(/^0+/, ''), month.replace(/^0+/, ''));
     }
   }
